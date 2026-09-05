@@ -1,0 +1,289 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-arabic), 'Noto Sans Arabic', sans-serif;
+  --font-heading: var(--font-heading-arabic), 'Noto Naskh Arabic', serif;
+
+  --color-cream: #f8f4ef;
+  --color-cream-soft: #fbf8f3;
+  --color-cream-warm: #f1eadf;
+  --color-green: #0b3329;
+  --color-green-soft: #123f35;
+  --color-gold: #b98a43;
+  --color-gold-soft: #d8bf8b;
+  --color-ink: #143d35;
+  --color-muted-ink: #6f7067;
+  --color-border-soft: #d8cab4;
+
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-cream-soft);
+  --color-card-foreground: var(--color-ink);
+  --color-primary: var(--color-green);
+  --color-primary-foreground: var(--color-cream-soft);
+  --color-secondary: var(--color-gold);
+  --color-secondary-foreground: var(--color-green);
+  --color-muted: var(--color-cream-warm);
+  --color-muted-foreground: var(--color-muted-ink);
+  --color-border: var(--color-border-soft);
+  --color-ring: var(--color-gold);
+  --color-input: var(--color-border-soft);
+  --color-popover: var(--color-cream-soft);
+  --color-popover-foreground: var(--color-ink);
+  --radius: 0.625rem;
+}
+
+:root {
+  color-scheme: light;
+  --cream: #f8f4ef;
+  --cream-soft: #fbf8f3;
+  --cream-warm: #f1eadf;
+  --green: #0b3329;
+  --green-soft: #123f35;
+  --gold: #b98a43;
+  --gold-soft: #d8bf8b;
+  --ink: #143d35;
+  --muted-ink: #6f7067;
+  --border-soft: #d8cab4;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--cream);
+    font-family: var(--font-arabic), 'Noto Sans Arabic', sans-serif;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 90% 8%, rgba(216, 191, 139, 0.16), transparent 24rem),
+      radial-gradient(circle at 7% 34%, rgba(12, 50, 41, 0.06), transparent 28rem),
+      linear-gradient(180deg, #fbf8f3 0%, #f8f4ef 52%, #fbf8f3 100%);
+    font-family: var(--font-arabic), 'Noto Sans Arabic', sans-serif;
+  }
+
+  a { text-decoration: none; }
+  ::selection { background: rgba(185, 138, 67, 0.24); color: var(--green); }
+}
+
+.heading-font {
+  font-family: var(--font-heading-arabic), 'Noto Naskh Arabic', serif;
+  letter-spacing: -0.035em;
+}
+
+.site-shell {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-frame {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  position: relative;
+}
+
+.section-pad {
+  padding-inline: clamp(1.25rem, 5.5vw, 7.5rem);
+}
+
+.section-desktop-screen {
+  min-height: 100svh;
+}
+
+.luxury-surface {
+  background:
+    radial-gradient(circle at 85% 18%, rgba(255,255,255,.72), transparent 24rem),
+    radial-gradient(circle at 12% 72%, rgba(185,138,67,.07), transparent 28rem),
+    linear-gradient(180deg, #fbf8f3 0%, #f8f4ef 100%);
+}
+
+.dark-luxury-surface {
+  background:
+    radial-gradient(circle at 22% 20%, rgba(216,191,139,.13), transparent 24rem),
+    radial-gradient(circle at 78% 70%, rgba(255,255,255,.05), transparent 26rem),
+    linear-gradient(135deg, #08281f 0%, #0b3329 50%, #08261f 100%);
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(185, 138, 67, 0.55), transparent);
+}
+
+.ornament-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--gold);
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: '';
+  width: clamp(2.4rem, 4vw, 4.8rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(185, 138, 67, 0.65), transparent);
+}
+
+.ornament-line.small::before,
+.ornament-line.small::after {
+  width: clamp(1.6rem, 2.5vw, 3rem);
+}
+
+.arch-image {
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+}
+
+.soft-image-shadow {
+  box-shadow: 0 30px 70px rgba(12, 50, 41, 0.16);
+}
+
+.btn-solid,
+.btn-outline,
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 30px;
+  font-size: 14px;
+  font-weight: 800;
+  transition: 220ms ease;
+}
+
+.btn-solid {
+  background: var(--green);
+  color: #fbf8f3;
+  box-shadow: 0 12px 24px rgba(12, 50, 41, 0.16);
+}
+
+.btn-solid:hover { background: #071f19; transform: translateY(-2px); }
+
+.btn-outline {
+  border: 1px solid rgba(185, 138, 67, 0.78);
+  color: var(--green);
+  background: rgba(251, 248, 243, 0.42);
+}
+
+.btn-outline:hover { background: rgba(185, 138, 67, 0.1); transform: translateY(-2px); }
+
+.btn-gold {
+  background: #d7b672;
+  color: var(--green);
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
+
+.btn-gold:hover { background: var(--gold); transform: translateY(-2px); }
+
+.image-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, transparent 0, rgba(255,255,255,.12) 100%),
+    linear-gradient(180deg, transparent, rgba(12,50,41,.12));
+  mix-blend-mode: soft-light;
+}
+
+.fine-border {
+  border: 1px solid rgba(216, 202, 180, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.46);
+}
+
+@media (max-width: 1023px) {
+  .section-desktop-screen { min-height: auto; }
+  .section-pad { padding-inline: clamp(1.1rem, 5vw, 2rem); }
+}
+
+@media (max-width: 767px) {
+  .btn-solid,
+  .btn-outline,
+  .btn-gold {
+    min-height: 40px;
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  /* Compact two-column rhythm for cards on small screens. */
+  #park-moments .section-frame > div.mt-14,
+  #park-moments + section .section-frame > div.grid,
+  #park-moments + section .section-frame > div.mt-16,
+  #garden-dining .section-frame > div.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  #park-moments figure,
+  #park-moments + section figure {
+    border-radius: 1.1rem;
+  }
+
+  #park-moments figcaption,
+  #park-moments + section figcaption {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0;
+    font-size: 0.75rem;
+  }
+
+  #park-moments + section article {
+    border-radius: 1.1rem;
+    padding: 1rem 0.65rem;
+  }
+
+  #park-moments + section article > div:first-child {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  #park-moments + section article h3 { margin-top: 0.75rem; font-size: 0.9rem; }
+  #park-moments + section article p { margin-top: 0.45rem; font-size: 0.7rem; line-height: 1.7; }
+
+  #garden-dining article {
+    min-height: 330px;
+    border-radius: 1.25rem;
+  }
+
+  #garden-dining article > div:last-child { padding: 1rem; }
+  #garden-dining article h3 { font-size: 1.45rem; }
+  #garden-dining article p { font-size: 0.7rem; line-height: 1.65; }
+  #garden-dining article a { padding: 0.65rem 0.8rem; font-size: 0.68rem; }
+
+  #service-offers article,
+  #service-features article {
+    min-height: 175px;
+    border-radius: 1.15rem;
+    padding: 1rem 0.65rem;
+  }
+
+  #service-offers article h3,
+  #service-features article h3 { font-size: 0.95rem; }
+
+  #service-offers article p,
+  #service-features article p { font-size: 0.7rem; line-height: 1.7; }
+
+  #service-offers figure { height: 245px; }
+  #service-offers figcaption { padding: 0.9rem 0.6rem; }
+  #service-offers figcaption > div { width: 2.25rem; height: 2.25rem; margin-bottom: 0.5rem; }
+  #service-offers figcaption h3 { font-size: 0.9rem; }
+  #service-offers figcaption p { margin-top: 0.35rem; font-size: 0.65rem; line-height: 1.55; }
+
+  #service-features > div > div { padding: 0.8rem; border-radius: 1.4rem; }
+}

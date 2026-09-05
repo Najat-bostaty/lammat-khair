@@ -1,0 +1,15 @@
+طريقة التشغيل:
+
+1) افتحي هذا الفولدر نفسه، وتأكدي أن package.json ظاهر مباشرة داخله.
+2) افتحي Terminal داخل الفولدر.
+3) شغلي:
+
+npm install
+npm run dev
+
+4) افتحي:
+http://localhost:3000
+
+أماكن الصور:
+- الصور داخل public/images
+- الزخارف داخل public/ornaments
