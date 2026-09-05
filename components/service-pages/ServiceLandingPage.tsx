@@ -421,27 +421,28 @@ function ShowcaseSection({ data }: { data: ServicePageData }) {
         <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3" dir="rtl">
           {data.showcase.map((item, index) => {
             const Icon = item.icon
+            const isLastOddCard = index === data.showcase.length - 1 && data.showcase.length % 2 !== 0
             return (
               <Reveal
                 key={item.title}
                 direction={index === 1 ? 'scale' : index === 0 ? 'right' : 'left'}
                 delay={index * 0.08}
                 amount={0.2}
-                className={index === data.showcase.length - 1 && data.showcase.length % 2 !== 0 ? 'col-span-2 w-[calc(50%-6px)] justify-self-center sm:w-[calc(50%-12px)] md:col-span-1 md:w-auto' : ''}
+                className={isLastOddCard ? 'col-span-2 w-full md:col-span-1' : ''}
               >
-                <article className={`group overflow-hidden rounded-[34px] border shadow-sm transition duration-300 hover:-translate-y-2 ${dark ? 'border-[#d7b672]/24 bg-[#fbf8f3]/8 hover:bg-[#fbf8f3]/12' : 'border-[#d8cab4] bg-[#fbf8f3]/68 hover:border-[#b98a43]'}`}>
+                <article className={`group h-full overflow-hidden rounded-[22px] border shadow-sm transition duration-300 hover:-translate-y-2 sm:rounded-[28px] lg:rounded-[34px] ${isLastOddCard ? 'grid grid-cols-[0.9fr_1.1fr] md:block' : ''} ${dark ? 'border-[#d7b672]/24 bg-[#fbf8f3]/8 hover:bg-[#fbf8f3]/12' : 'border-[#d8cab4] bg-[#fbf8f3]/68 hover:border-[#b98a43]'}`}>
                   {item.image && (
-                    <div className="relative h-[250px] overflow-hidden bg-[#eadfce] lg:h-[310px]">
+                    <div className={`relative overflow-hidden bg-[#eadfce] ${isLastOddCard ? 'h-full min-h-[170px] md:h-[180px] lg:h-[310px]' : 'h-[135px] sm:h-[170px] lg:h-[310px]'}`}>
                       <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover transition duration-[1100ms] group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0b3329]/35 via-transparent to-white/10" />
                     </div>
                   )}
-                  <div className={`${data.variant === 'mandi' ? 'px-5 py-4 lg:p-7' : 'p-7'} text-right`}>
-                    <div className={`mb-3 flex h-11 w-11 items-center justify-center rounded-full border lg:mb-5 lg:h-12 lg:w-12 ${dark ? 'border-[#d7b672]/35 text-[#d7b672]' : 'border-[#d8cab4] text-[#b98a43]'}`}>
-                      <Icon className="h-7 w-7 stroke-[1.45]" />
+                  <div className={`flex flex-col justify-center p-3 text-right sm:p-4 lg:p-7`}>
+                    <div className={`mb-2 flex h-9 w-9 items-center justify-center rounded-full border sm:h-10 sm:w-10 lg:mb-5 lg:h-12 lg:w-12 ${dark ? 'border-[#d7b672]/35 text-[#d7b672]' : 'border-[#d8cab4] text-[#b98a43]'}`}>
+                      <Icon className="h-5 w-5 stroke-[1.45] lg:h-7 lg:w-7" />
                     </div>
-                    <h3 className={`text-[22px] font-extrabold ${dark ? 'text-[#fbf8f3]' : 'text-[#0b3329]'}`}>{item.title}</h3>
-                    <p className={`mt-2 text-[14px] font-medium leading-[1.8] lg:mt-3 lg:leading-[1.95] ${dark ? 'text-[#fbf8f3]/72' : 'text-[#6f7067]'}`}>{item.desc}</p>
+                    <h3 className={`text-[16px] font-extrabold leading-[1.55] sm:text-[18px] lg:text-[22px] ${dark ? 'text-[#fbf8f3]' : 'text-[#0b3329]'}`}>{item.title}</h3>
+                    <p className={`mt-1.5 text-[11px] font-medium leading-[1.65] sm:text-[12px] lg:mt-3 lg:text-[14px] lg:leading-[1.95] ${dark ? 'text-[#fbf8f3]/72' : 'text-[#6f7067]'}`}>{item.desc}</p>
                   </div>
                 </article>
               </Reveal>
