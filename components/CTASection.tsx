@@ -5,7 +5,7 @@ export default function CTASection() {
   return (
     <section id="cta" className="relative isolate flex min-h-[72svh] overflow-hidden bg-[#f8f4ef] py-20 lg:py-0">
       <div className="section-frame section-pad flex w-full items-center justify-center">
-        <Reveal direction="up" className="relative w-full max-w-[1480px] overflow-hidden rounded-[34px] bg-[#0b3329] px-6 py-16 text-center text-[#fbf8f3] shadow-[0_34px_76px_rgba(12,50,41,0.22)] lg:min-h-[42vh] lg:px-0 lg:py-0">
+        <Reveal direction="up" once className="relative w-full max-w-[1480px] overflow-hidden rounded-[34px] bg-[#0b3329] px-6 py-16 text-center text-[#fbf8f3] shadow-[0_34px_76px_rgba(12,50,41,0.22)] lg:min-h-[42vh] lg:px-0 lg:py-0">
           <div className="absolute inset-0 bg-[url('/images/cta-background.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,34,27,.94),rgba(7,48,38,.72),rgba(5,34,27,.92))]" />
 

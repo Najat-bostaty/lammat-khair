@@ -34,6 +34,7 @@ export function Reveal({
   delay = 0,
   duration = 0.9,
   amount = 0.22,
+  once = false,
   dir,
 }: {
   children: ReactNode
@@ -42,6 +43,7 @@ export function Reveal({
   delay?: number
   duration?: number
   amount?: number
+  once?: boolean
   dir?: 'rtl' | 'ltr'
 }) {
   const reduceMotion = useReducedMotion()
@@ -52,7 +54,7 @@ export function Reveal({
       dir={dir}
       initial={hiddenState(direction, Boolean(reduceMotion))}
       whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, filter: 'blur(0px)' }}
-      viewport={{ once: true, amount, margin: '-8% 0px -8% 0px' }}
+      viewport={{ once, amount, margin: '-8% 0px -8% 0px' }}
       transition={{ duration, delay, ease }}
     >
       {children}
@@ -76,7 +78,7 @@ export function FloatOnView({
       className={className}
       initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 22, rotate: -2 }}
       whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, rotate: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
+      viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 1.15, delay, ease }}
     >
       {children}

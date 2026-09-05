@@ -629,7 +629,7 @@ function ClosingInfo({ data }: { data: ServicePageData }) {
   return (
     <section id="service-contact" className="relative isolate scroll-mt-28 overflow-hidden bg-[#f8f4ef] py-16 lg:py-22">
       <div className="section-frame section-pad">
-        <Reveal direction="up" className="relative mx-auto max-w-[1380px] overflow-hidden rounded-[34px] bg-[#0b3329] px-6 py-12 text-center text-[#fbf8f3] shadow-[0_34px_76px_rgba(12,50,41,0.18)] lg:px-20 lg:py-14">
+        <Reveal direction="up" once className="relative mx-auto max-w-[1380px] overflow-hidden rounded-[34px] bg-[#0b3329] px-6 py-12 text-center text-[#fbf8f3] shadow-[0_34px_76px_rgba(12,50,41,0.18)] lg:px-20 lg:py-14">
           <div className="absolute inset-0 dark-luxury-surface opacity-95" />
           <div className="relative z-10 mx-auto max-w-[780px]">
             <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#d7b672]/35 text-[#d7b672]">
